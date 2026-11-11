@@ -1,0 +1,9 @@
+[
+ {"name":"Belushi's","lat":55.9511646,"lng":-3.1902701,"start":"20:00","end":"20:45"},
+ {"name":"The Pilgrim","lat":55.9487847,"lng":-3.1860065,"start":"21:00","end":"21:45"},
+ {"name":"Bar 50","lat":55.9492302,"lng":-3.1861131,"start":"21:50","end":"22:30"},
+ {"name":"The Three Sisters","lat":55.9481196,"lng":-3.1901115,"start":"22:35","end":"23:20"},
+ {"name":"Finnegan's Wake","lat":55.9485570,"lng":-3.1935392,"start":"23:30","end":"00:10"},
+ {"name":"Frankenstein","lat":55.9473800,"lng":-3.1917057,"start":"00:15","end":"00:50"},
+ {"name":"The Hive","lat":55.9496224,"lng":-3.1870411,"start":"01:00","end":""}
+]

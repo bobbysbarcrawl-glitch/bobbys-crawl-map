@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: bobbys-crawl-map
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: GUIDE_PIN
+        sync: false

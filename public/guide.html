@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cinzel+Decorative:wght@700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="/style.css"><meta name="theme-color" content="#3b2414">
+<title>Bobby's Bar Crawl – Guide</title></head><body>
+<div id="map"></div>
+<div class="banner"><h1>Bobby's Bar Crawl</h1><p>Guide's quill – you lead, they follow.</p></div>
+<button class="btn toggle" id="panelBtn">☰ Guide tools</button>
+<div class="gate" id="gate"><div class="card"><h2 style="font-family:'Cinzel Decorative';margin:4px 0">Guide's entrance</h2>
+  <p class="small">Enter the guide PIN to share the crew's location and edit tonight's stops.</p>
+  <input type="password" inputmode="numeric" id="pin" placeholder="PIN" style="width:100%;font-size:20px;padding:8px;text-align:center;border:1px solid #5a3a1f;border-radius:4px;background:#fbf3dc">
+  <p id="pinErr" class="hint"></p><button class="btn" id="pinBtn" style="width:100%">Enter</button></div></div>
+<div class="panel" id="panel">
+  <h2>Guide tools</h2>
+  <h3>Live footsteps</h3>
+  <div class="flex"><button class="btn" id="shareBtn">▶ Start sharing my location</button></div>
+  <p class="small" id="gpsInfo">Not sharing. Keep this page open and the screen on while you walk.</p>
+  <h3>Demo mode</h3>
+  <div class="flex"><button class="btn alt" id="demoBtn">Start demo walk</button><button class="btn alt" id="clearBtn">Clear trail</button></div>
+  <p class="small">Demo walks a pretend crew along tonight's stops (about 5× walking speed) for showing the map off. Starting real sharing ends the demo.</p>
+  <h3>Tonight's stops</h3>
+  <p class="small">Drag a pin to move it. Tap “Here” to mark where the crew is.</p>
+  <ul class="stoplist" id="stops"></ul>
+  <div class="flex" style="margin-top:8px"><button class="btn alt" id="addBtn">＋ Tap map to add a stop</button></div>
+  <p class="hint" id="addHint" style="display:none">Tap the map where the new stop is…</p>
+  <input type="search" id="q" placeholder="Search a bar (e.g. Sneaky Pete's)" style="margin-top:8px">
+  <div class="results" id="results"></div>
+  <div class="flex" style="margin-top:8px"><button class="btn alt" id="fitBtn">Show all stops</button><button class="btn alt" id="resetBtn">Reset to default route</button></div>
+  <h3>Share with the group</h3>
+  <input type="text" id="viewUrl" readonly><div class="flex" style="margin-top:6px"><button class="btn" id="copyBtn">Copy viewer link</button></div>
+</div>
+<script src="/map.js"></script><script src="/guide.js"></script>
+</body></html>

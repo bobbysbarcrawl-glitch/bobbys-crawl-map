@@ -1,0 +1,22 @@
+{
+  "name": "bobbys-crawl-map",
+  "version": "1.0.0",
+  "description": "Bobby's Bar Crawl live parchment map",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ws": "^8.22.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0"
+  }
+}

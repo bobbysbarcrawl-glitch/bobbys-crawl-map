@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cinzel+Decorative:wght@700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="/style.css"><meta name="theme-color" content="#3b2414">
+<title>Bobby's Bar Crawl – Live Map</title></head><body>
+<div id="map"></div>
+<div class="banner"><h1>Bobby's Bar Crawl</h1><p>Follow the footsteps, find the crew, never miss a round.</p></div>
+<div class="card" id="card">
+  <div class="row"><span class="lbl" id="l1">Where the crew is</span><span class="val" id="where">Waiting for the guide…</span></div>
+  <div class="row"><span class="lbl">Next stop</span><span class="val" id="next">–</span></div>
+  <div class="row"><span class="small" id="seen"></span><span class="small" id="sched"></span></div>
+  <div class="flex" style="margin-top:6px;justify-content:space-between">
+    <button class="btn alt" id="followBtn">Following crew</button>
+    <button class="btn alt" id="itinBtn">Tonight's route ▾</button>
+  </div>
+  <ol id="itin" class="stoplist" style="display:none;margin-top:6px"></ol>
+</div>
+<script src="/map.js"></script><script src="/viewer.js"></script>
+</body></html>

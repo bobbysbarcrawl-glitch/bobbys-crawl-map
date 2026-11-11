@@ -1,0 +1,83 @@
+:root{--ink:#3b2414;--ink2:#5a3a1f;--parch:#f1e2bd;--parch2:#e6cf99;--red:#7a1f12}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#2a1a0e;font-family:'IM Fell English',Georgia,serif;color:var(--ink)}
+#map{position:absolute;inset:0;background:var(--parch)}
+/* parchment texture lives on the container; tiles are sepia-inked and multiplied onto it */
+.leaflet-container{font-family:inherit;background:
+  radial-gradient(circle at 80% 70%,rgba(140,90,40,.16),transparent 40%),
+  radial-gradient(circle at 25% 20%,rgba(150,100,40,.14),transparent 35%),
+  radial-gradient(circle at 30% 85%,rgba(110,70,30,.14),transparent 30%),
+  repeating-linear-gradient(37deg,rgba(90,60,20,.04) 0 2px,transparent 2px 6px),
+  repeating-linear-gradient(-61deg,rgba(90,60,20,.03) 0 1px,transparent 1px 7px),
+  linear-gradient(160deg,#f4e6c2,#e8d19c 60%,#e2c68c)!important}
+.leaflet-tile-pane{filter:grayscale(1) sepia(1) saturate(.7) contrast(1.35) brightness(1.05) hue-rotate(-10deg);mix-blend-mode:multiply;opacity:.82}
+.vignette{position:absolute;inset:0;pointer-events:none;z-index:500;
+ background:radial-gradient(ellipse at center,rgba(0,0,0,0) 58%,rgba(80,45,12,.45) 92%,rgba(50,25,5,.7) 100%);
+ box-shadow:inset 0 0 0 3px rgba(60,35,15,.6),inset 0 0 0 9px rgba(241,226,189,.25)}
+.leaflet-control-attribution{background:rgba(241,226,189,.8)!important;font-size:10px;color:var(--ink2)}
+.leaflet-control-attribution a{color:var(--ink2)}
+.leaflet-bar a{background:var(--parch);color:var(--ink);border-color:var(--ink2)!important;font-family:serif}
+/* header scroll */
+.banner{position:absolute;z-index:1000;top:10px;left:50%;transform:translateX(-50%);text-align:center;
+ padding:8px 26px 10px;background:linear-gradient(#f6e9c6,#e5cc93);border:2px solid var(--ink2);border-radius:6px;
+ box-shadow:0 3px 14px rgba(0,0,0,.45),inset 0 0 18px rgba(120,70,20,.35);max-width:94vw}
+.banner h1{margin:0;font-family:'Cinzel Decorative','IM Fell English',serif;font-size:clamp(18px,5vw,28px);letter-spacing:1px;color:var(--ink)}
+.banner p{margin:2px 0 0;font-family:'Caveat',cursive;font-size:clamp(15px,4vw,20px);color:var(--ink2)}
+/* status card */
+.card{position:absolute;z-index:1000;left:10px;right:10px;bottom:16px;margin:auto;max-width:440px;
+ background:linear-gradient(#f6e9c6,#e8d29f);border:2px solid var(--ink2);border-radius:8px;padding:10px 14px;
+ box-shadow:0 4px 16px rgba(0,0,0,.45),inset 0 0 20px rgba(120,70,20,.3);font-size:16px}
+.card .row{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.card .lbl{font-family:'Caveat',cursive;font-size:19px;color:var(--ink2)}
+.card .val{font-weight:bold;text-align:right}
+.card .small{font-size:13px;color:var(--ink2);font-style:italic}
+.btn{font-family:inherit;font-size:15px;background:var(--ink);color:var(--parch);border:1px solid #000;border-radius:5px;padding:7px 12px;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink2)}
+.btn.red{background:var(--red)}
+.btn:disabled{opacity:.5}
+/* footprints */
+.foot{pointer-events:none}
+.foot svg{display:block;transition:opacity 1.5s linear}
+.foot.new svg{animation:inkin .9s ease-out}
+@keyframes inkin{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+/* group marker */
+.crew{pointer-events:auto}
+.crew .dot{width:18px;height:18px;border-radius:50%;background:var(--red);border:2px solid var(--parch);box-shadow:0 0 0 2px var(--ink);margin:3px}
+.crew .ring{position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;border:2px solid var(--red);animation:pulse 2s infinite}
+@keyframes pulse{from{transform:scale(1);opacity:.9}to{transform:scale(3);opacity:0}}
+.crew .name{position:absolute;left:28px;top:-4px;white-space:nowrap;font-family:'Caveat',cursive;font-size:20px;font-weight:700;color:var(--red);
+ text-shadow:0 0 3px var(--parch),0 0 3px var(--parch),0 0 5px var(--parch)}
+/* stop labels: ink scroll */
+.stopicon .pin{width:26px;height:26px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--parch);border:2px solid var(--ink);
+ display:flex;align-items:center;justify-content:center;box-shadow:1px 2px 4px rgba(0,0,0,.4)}
+.stopicon .pin span{transform:rotate(45deg);font-weight:bold;font-size:13px}
+.stopicon.visited .pin{background:#c9b27e;opacity:.85}
+.stopicon.current .pin{background:var(--red);color:var(--parch);border-color:#2a0b05;animation:bob 1.2s ease-in-out infinite alternate}
+.stopicon.next .pin{border-style:dashed;border-color:var(--red)}
+@keyframes bob{to{margin-top:-6px}}
+.leaflet-tooltip.stoplabel{background:rgba(246,233,198,.92);border:1px solid var(--ink2);border-radius:3px;color:var(--ink);
+ font-family:'Caveat',cursive;font-size:18px;font-weight:700;padding:0 7px;box-shadow:1px 2px 5px rgba(0,0,0,.3)}
+.leaflet-tooltip.stoplabel:before{display:none}
+.route-line{stroke-dasharray:2 9;stroke-linecap:round}
+/* guide panel */
+.panel{position:absolute;z-index:1000;top:0;right:0;bottom:0;width:min(380px,100vw);overflow:auto;
+ background:linear-gradient(#f6e9c6,#e5cc93);border-left:2px solid var(--ink2);padding:12px 14px 90px;box-shadow:-4px 0 16px rgba(0,0,0,.4);transition:transform .3s}
+.panel.hidden{transform:translateX(105%)}
+.panel h2{font-family:'Cinzel Decorative',serif;font-size:19px;margin:6px 0 4px}
+.panel h3{font-family:'Caveat',cursive;font-size:22px;margin:14px 0 4px;color:var(--ink2)}
+.panel input[type=text],.panel input[type=password],.panel input[type=search]{width:100%;font-family:inherit;font-size:16px;padding:7px;border:1px solid var(--ink2);border-radius:4px;background:#fbf3dc}
+.stoplist{list-style:none;padding:0;margin:0}
+.stoplist li{display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px dashed rgba(90,58,31,.4)}
+.stoplist li input{flex:1;min-width:0;padding:4px!important;font-size:15px!important}
+.stoplist li button{background:none;border:1px solid var(--ink2);border-radius:4px;font-size:14px;padding:3px 6px;cursor:pointer;color:var(--ink)}
+.stoplist li .num{width:22px;text-align:center;font-weight:bold}
+.stoplist li.cur{background:rgba(122,31,18,.12)}
+.results div{padding:6px;border-bottom:1px dotted var(--ink2);cursor:pointer;font-size:14px}
+.results div:hover{background:rgba(0,0,0,.06)}
+.toggle{position:absolute;z-index:1001;top:12px;right:12px}
+.hint{font-family:'Caveat',cursive;font-size:18px;color:var(--red)}
+.flex{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.gate{position:absolute;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(30,18,8,.75)}
+.gate .card{position:static;max-width:340px;text-align:center}
+@media (max-width:600px){.banner{top:6px;padding:5px 14px 6px}.toggle{top:auto;bottom:150px}}
+@media (max-width:600px){.banner{white-space:nowrap}.banner h1{font-size:18px}.banner p{font-size:14px}}
