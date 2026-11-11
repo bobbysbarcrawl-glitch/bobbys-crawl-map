@@ -128,4 +128,4 @@ wss.on('connection', ws => {
   });
 });
 setInterval(() => { for (const c of clients) if (c.readyState === 1) c.ping(); }, 25000);
-server.listen(PORT, () => console.log(`Bobby's crawl map on :${PORT}  guide PIN ${db.pin}`));
+server.listen(PORT, () => console.log(`Bobby's crawl map on :${PORT}  (guide PIN ${process.env.GUIDE_PIN ? "from GUIDE_PIN env" : "in data.json"})`));
